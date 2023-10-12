@@ -65,8 +65,13 @@ go install github.com/go-delve/delve/cmd/dlv@latest
 ## plugins
 
 https://github.com/neovim/nvim-lspconfig
+
 https://github.com/jose-elias-alvarez/null-ls.nvim
+
 https://github.com/olexsmir/gopher.nvim
+
 https://github.com/mfussenegger/nvim-dap
+
 https://github.com/leoluz/nvim-dap-go
+
 https://github.com/williamboman/mason.nvim
