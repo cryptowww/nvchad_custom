@@ -11,6 +11,7 @@ local plugins = {
       -- format & linting
       {
         "jose-elias-alvarez/null-ls.nvim",
+		ft = "go",
         config = function()
           require "custom.configs.null-ls"
         end,
@@ -20,6 +21,32 @@ local plugins = {
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
+  },
+  {
+	  "olexsmir/gopher.nvim",
+	  ft = "go",
+	  config = function(_, opts)
+		require("gopher").setup(opts)
+		require("core.utils").load_mappings("gopher")
+	  end,
+	  build = function()
+		  vim.cmd [[silent! GoInstallDeps]]
+	  end,
+  },
+  {
+	"mfussenegger/nvim-dap",
+	init = function()
+		require("core.utils").load_mappings("dap")
+	end,
+  },
+  {
+	"leoluz/nvim-dap-go",
+	ft = "go",
+	dependencies = "mfussenegger/nvim-dap",
+	config = function(_, opts)
+		require("dap-go").setup(opts)
+		require("core.utils").load_mappings("dap_go")
+	end,
   },
 
   -- github/copilot
@@ -48,7 +75,11 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+	opts = {
+		ensure_installed = {
+			"gopls",
+		},
+	},
   },
 
   {
@@ -68,6 +99,11 @@ local plugins = {
     config = function()
       require("better_escape").setup()
     end,
+  },
+  -- coc
+  {
+	"neoclide/coc.nvim",
+	branch="release",
   },
 
   -- To make a plugin not be loaded
