@@ -4,6 +4,20 @@ local overrides = require("custom.configs.overrides")
 local plugins = {
 
   -- Override plugin definition options
+  {
+    "majutsushi/tagbar",
+    lazy = false,
+  },
+  {
+    "sindrets/diffview.nvim",
+    dependencies={
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require "custom.configs.diffview"
+    end,
+    lazy=false,
+  },
 
   {
     "neovim/nvim-lspconfig",

@@ -14,5 +14,5 @@ vim.api.nvim_set_keymap("i", "<C-f>", 'copilot#Accept("<CR>")', { silent = true,
 
 --vim.api.nvim_set_keymap('n', '<leader>gr', ':GoRun<CR>', { noremap = true, silent = true })
 --vim.api.nvim_set_keymap('n', '<leader>gf', ':GoFmt<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_current_dir("g:/workspace/")
+--vim.api.nvim_set_current_dir("~/go")
 
